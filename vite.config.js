@@ -25,11 +25,11 @@ export default defineConfig(({ mode, command }) => {
       open: true,
       proxy: {
         // https://cn.vitejs.dev/config/#server-proxy
-        "/dev-api": {
-          target: "http://192.168.11.196:8080", // 测试
+       '/api': {
+          target: 'http://localhost:8081',
           changeOrigin: true,
-          rewrite: (p) => p.replace(/^\/dev-api/, ""),
-        }
+          rewrite: (p) => p.replace(/^\/api/, '')
+        },
       },
     },
   };
