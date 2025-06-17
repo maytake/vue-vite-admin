@@ -1,17 +1,20 @@
+const { login, getInfo, getRoutes } = require('./data')
 let express = require('express');
 let app = express();
 
-app.get('/',function (req,res) {
-    res.send(`<h1>Hello, World</h1>`)
+app.get('/api/user', function (req, res) {
+    res.json(login);
 })
-app.use('/api/test/project',function(req,res){
-    res.json(Mock.mock({
-        'code':200,
-        'data|1-9':[{
-            'id|+1':1
-        }]
-    }))
-});
-app.listen(8081,function(){
+app.post('/api/login', function (req, res) {
+    res.json(login);
+})
+app.get('/api/getInfo', function (req, res) {
+    res.json(getInfo);
+})
+app.get('/api/getRouters', function (req, res) {
+    res.json(getRoutes);
+})
+
+app.listen(8081, function () {
     console.log('服务器已启动')
 })
